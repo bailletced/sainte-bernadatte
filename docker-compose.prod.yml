@@ -1,0 +1,7 @@
+version: "3.8"
+
+services:
+  next:
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_API_URL: https://saintebernadattemontpellier.cef.fr

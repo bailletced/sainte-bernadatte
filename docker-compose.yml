@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  next:
+    container_name: sb-next
+    restart: always
+    build:
+      context: .
+      dockerfile: docker/next/dockerfile
+    volumes:
+      - ./next:/home/app
+      - ./docker/next/entrypoint.sh:/usr/local/sbin/entrypoint.sh
+    ports:
+      - 3000:3000
+
+  db:
+    container_name: sb-postgres
+    restart: always
+    image: postgres:16.1-alpine3.18
+    user: ${POSTGRES_UID}:${POSTGRES_GID}
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db:/var/lib/postgresql/data

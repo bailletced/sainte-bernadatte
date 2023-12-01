@@ -1,0 +1,1 @@
+CAROOT=../certificates mkcert -install
