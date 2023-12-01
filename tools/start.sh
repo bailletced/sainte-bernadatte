@@ -1,3 +1,5 @@
+#!/bin/sh
+
 action=$3
 
 while getopts e: flag

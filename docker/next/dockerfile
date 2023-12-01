@@ -2,19 +2,21 @@ FROM node:20.9.0-alpine3.17
 
 ENV NODE_ENV=development
 
-RUN apk update && apk add jq bash curl coreutils shadow sudo rsync
+RUN apk update && apk add jq bash curl coreutils shadow sudo rsync git
 
 # Create app directory
 RUN mkdir -p /home/app && chown -R node:node /home/app
 WORKDIR /home/app
 
 # Copy all source files
-COPY ./next /home/app
+COPY . /home/app
 # Copy entrypoint
 COPY ./docker/next/entrypoint.sh /usr/local/sbin/entrypoint.sh
 
 # Upgrade to latest yarn
 RUN yarn set version berry 
+
+RUN cd next
 
 # Install node_modules optimised for production as root to avoid privileges issues
 RUN yarn install && chown -R node:node /home/app
@@ -22,6 +24,8 @@ RUN yarn install && chown -R node:node /home/app
 USER node
 
 EXPOSE 3000
+
+WORKDIR /home/app/next
 
 ENTRYPOINT [ "/usr/local/sbin/entrypoint.sh" ]
 CMD [ -d "node_modules" ] && npm run start || npm ci && npm run start

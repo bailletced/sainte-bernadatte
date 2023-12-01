@@ -3,13 +3,9 @@ version: "3.8"
 services:
   next:
     container_name: sb-next
-    restart: always
     build:
       context: .
       dockerfile: docker/next/dockerfile
-    volumes:
-      - ./next:/home/app
-      - ./docker/next/entrypoint.sh:/usr/local/sbin/entrypoint.sh
     ports:
       - 3000:3000
 

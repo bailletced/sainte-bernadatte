@@ -13,6 +13,11 @@ services:
       - next
       - db
   next:
+    volumes:
+      - .:/home/app
+      - ./docker/next/entrypoint.sh:/usr/local/sbin/entrypoint.sh
+      - .git:/home/app
+      - ~/.gitconfig:/etc/gitconfig
     environment:
       NODE_ENV: development
       NEXT_PUBLIC_API_URL: https://dev.saintebernadattemontpellier.cef.fr

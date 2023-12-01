@@ -6,7 +6,7 @@ version=$(node -v );
 echo "NODE     --> "$(node -v )
 echo "yarn     --> "$(yarn --version)
 
-cd /home/app || exit 1
+cd /home/app/next || exit 1
 
 # fix access rights to cache:
 # our yarn install created them with root owner, while process runs as node

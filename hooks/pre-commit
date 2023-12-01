@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "executing pre-commit hooks..."
+docker exec sb-next yarn lint-staged
