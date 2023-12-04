@@ -10,9 +10,17 @@
     "format": "yarn prettier --ignore-path .gitignore -w ."
   },
   "dependencies": {
+    "@apollo/server": "^4.9.5",
+    "@as-integrations/next": "^3.0.0",
+    "class-validator": "^0.14.0",
+    "graphql": "^16.8.1",
+    "graphql-scalars": "^1.22.4",
     "next": "14.0.3",
+    "prisma": "^5.6.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "2.0.0-beta.3"
   },
   "devDependencies": {
     "@types/node": "^20",

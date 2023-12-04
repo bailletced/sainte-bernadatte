@@ -21,6 +21,7 @@ services:
     environment:
       NODE_ENV: development
       NEXT_PUBLIC_API_URL: https://dev.saintebernadattemontpellier.cef.fr
+      DATABASE_URL: postgresql://sb:sb@localhost:5432/sb?schema=public
   db:
     environment:
       - PGDATA=/var/lib/pg_data
