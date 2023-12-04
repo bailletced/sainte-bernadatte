@@ -1,22 +1,23 @@
+import "reflect-metadata"; //Needed to import it once in the global namespace
+
 import { startServerAndCreateNextHandler } from "@as-integrations/next";
-
 import { ApolloServer } from "@apollo/server";
-
-import { NextRequest } from "next/server";
-import { getSchema } from "@/graphql/schema";
+import { buildSchema } from "type-graphql";
+import { UsersQuery } from "@/graphql/resolvers/user/UsersQuery";
 
 interface MyContext {
   token?: String;
 }
 
-let graphqlSchema = await getSchema();
 
+let graphqlSchema =  await buildSchema({
+  resolvers: [UsersQuery],
+  emitSchemaFile: false,
+});
 const server = new ApolloServer<MyContext>({
   schema: graphqlSchema,
 });
 
-const handler = startServerAndCreateNextHandler<NextRequest>(server, {
-  context: async (req: any) => ({ req }),
-});
+const handler = startServerAndCreateNextHandler(server);
 
 export { handler as GET, handler as POST };
