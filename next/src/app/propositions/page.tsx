@@ -1,28 +1,16 @@
+"use client";
+
 import { Spacer } from "@/src/frontend/components/elements/Spacer";
 import MultipleSelect from "@/src/frontend/components/elements/select/MultipleSelect";
 import { HeadPage } from "@/src/frontend/components/general/HeadPage";
-import { SelectedItems } from "@nextui-org/react";
-
-type TGroups = {
-  value: string;
-};
-
-const groups: SelectedItems<TGroups> = [
-  {
-    textValue: "Chorale",
-  },
-  {
-    textValue: "Prière",
-  },
-  {
-    textValue: "Étudiants",
-  },
-  {
-    textValue: "Jeunes Pros",
-  },
-];
+import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
+import tagsQuery from "@/graphql/tag/tagQueries.graphql";
+import { GetTagsQuery } from "@/src/frontend/graphql/graphql-types";
 
 export default function Page() {
+  const { data } = useSuspenseQuery<GetTagsQuery>(tagsQuery);
+  console.log(data.tags);
+
   return (
     <>
       <HeadPage
@@ -31,7 +19,9 @@ export default function Page() {
       />
       <Spacer size="h-3" />
       <div className="w-full px-2">
-        <MultipleSelect items={groups} />
+        <MultipleSelect
+          items={data.tags.map((tag) => ({ textValue: tag.name }))}
+        />
       </div>
     </>
   );

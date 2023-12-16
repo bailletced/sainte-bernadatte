@@ -1,4 +1,4 @@
-query tagsQuery {
+query getTags {
   tags {
     name
     tagId
