@@ -1,5 +1,5 @@
 import {
-  Navbar,
+  Navbar as NextUiNavbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
@@ -10,7 +10,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
-export const BNavbar: TFC = () => {
+export const Navbar: TFC = () => {
   const menuItems = [
     "Profile",
     "Dashboard",
@@ -25,7 +25,7 @@ export const BNavbar: TFC = () => {
   ];
 
   return (
-    <Navbar classNames={{ base: "" }}>
+    <NextUiNavbar classNames={{ base: "" }}>
       <NavbarContent>
         <NavbarBrand>
           <Image src="/images/logo.png" alt="logo" width={140} height={80} />
@@ -76,6 +76,6 @@ export const BNavbar: TFC = () => {
           </NavbarMenuItem>
         ))}
       </NavbarMenu>
-    </Navbar>
+    </NextUiNavbar>
   );
 };

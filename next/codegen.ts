@@ -2,15 +2,11 @@ import type { CodegenConfig } from "@graphql-codegen/cli";
 
 const config: CodegenConfig = {
   overwrite: true,
-  schema: "https://dev.saintebernadettemontpellier.cef.fr/api/graphql",
-  documents: "src/**/*.tsx",
+  schema: "http://localhost:3000/api/graphql",
+  documents: "src/**/*.graphql",
   generates: {
-    "src/graphql": {
-      preset: "client",
-      plugins: [],
-    },
-    "./graphql.schema.json": {
-      plugins: ["introspection"],
+    "src/frontend/graphql/graphql-types.ts": {
+      plugins: ["typescript", "typescript-operations"],
     },
   },
 };

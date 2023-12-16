@@ -1,6 +1,6 @@
-import { VHeadPage } from "@/src/frontend/components/general/VHeadPage";
-import { Spacer } from "@/src/frontend/elements/Spacer";
-import MultipleSelect from "@/src/frontend/elements/select/MultipleSelect";
+import { Spacer } from "@/src/frontend/components/elements/Spacer";
+import MultipleSelect from "@/src/frontend/components/elements/select/MultipleSelect";
+import { HeadPage } from "@/src/frontend/components/general/HeadPage";
 import { SelectedItems } from "@nextui-org/react";
 
 type TGroups = {
@@ -25,7 +25,7 @@ const groups: SelectedItems<TGroups> = [
 export default function Page() {
   return (
     <>
-      <VHeadPage
+      <HeadPage
         title="Propositions de la paroisse"
         subtitle="Rejoignez le groupe qui vous correspond !"
       />

@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
-import { Providers } from "../frontend/components/CProviders";
+import { Providers } from "../frontend/providers/Providers";
 
 import localFont from "next/font/local";
-import { BNavbar } from "../frontend/components/navbar/BNavbar";
+import { Navbar } from "../frontend/components/navbar/Navbar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,7 +30,7 @@ const RootLayout: TFCC = ({ children }) => {
     <html lang="fr" className={`${inter.className} ${bonbonRegular.variable}`}>
       <body suppressHydrationWarning={true}>
         <Providers>
-          <BNavbar />
+          <Navbar />
           {children}
         </Providers>
       </body>

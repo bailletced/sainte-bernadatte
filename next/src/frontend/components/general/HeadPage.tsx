@@ -1,9 +1,9 @@
-type TVHeadPageProps = {
+type THeadPageProps = {
   title: string;
   subtitle: string;
 };
 
-export const VHeadPage: TFC<TVHeadPageProps> = ({ title, subtitle }) => {
+export const HeadPage: TFC<THeadPageProps> = ({ title, subtitle }) => {
   return (
     <div
       className="flex items-center justify-center w-full h-80 "
