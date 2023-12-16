@@ -11,8 +11,6 @@ interface MyContext {
 
 let graphqlSchema = getSchema();
 
-console.log(graphqlSchema);
-
 const server = new ApolloServer<MyContext>({
   schema: graphqlSchema,
 });

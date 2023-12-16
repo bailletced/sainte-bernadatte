@@ -9,7 +9,6 @@ import { GetTagsQuery } from "@/src/frontend/graphql/graphql-types";
 
 export default function Page() {
   const { data } = useSuspenseQuery<GetTagsQuery>(tagsQuery);
-  console.log(data.tags);
 
   return (
     <>
