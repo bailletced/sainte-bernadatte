@@ -9,3 +9,31 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Tag {
+  tagId        String     @id @default(uuid()) @map("tag_id")
+  name     String   @db.VarChar(255)
+  groupTagSubscription GroupTagSubscription[]
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model GroupTagSubscription {
+  groupTagSubscriptionId  String @id @default(uuid()) @map("group_tag_subscription_id")
+  groupId        String    
+  tagId        String    
+  group Group @relation(fields: [groupId], references: [groupId])
+  tag Tag @relation(fields: [tagId], references: [tagId])
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model Group {
+  groupId        String     @id @default(uuid()) @map("group_id")
+  name     String   @db.VarChar(255)
+  groupTagSubscription GroupTagSubscription[]
+  description     String   @db.Text
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+

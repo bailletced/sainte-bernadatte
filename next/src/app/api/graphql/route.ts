@@ -3,13 +3,15 @@ import { startServerAndCreateNextHandler } from "@as-integrations/next";
 import { ApolloServer } from "@apollo/server";
 
 import { NextRequest } from "next/server";
-import { getSchema } from "@/graphql/schema";
+import { getSchema } from "@/src/graphql/schema";
 
 interface MyContext {
   token?: String;
 }
 
-let graphqlSchema = await getSchema();
+let graphqlSchema = getSchema();
+
+console.log(graphqlSchema);
 
 const server = new ApolloServer<MyContext>({
   schema: graphqlSchema,

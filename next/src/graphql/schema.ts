@@ -1,10 +1,15 @@
-import { GraphQLSchema } from "graphql";
-import { buildSchema } from "type-graphql";
-import { UsersQuery } from "./resolvers/user/UsersQuery";
+import "reflect-metadata";
 
-export async function getSchema(): Promise<GraphQLSchema> {
-  return await buildSchema({
-    resolvers: [UsersQuery],
-    emitSchemaFile: false,
+import { GraphQLSchema } from "graphql";
+import { buildTypeDefsAndResolversSync } from "type-graphql";
+import { UsersQuery } from "./resolvers/user/UsersQuery";
+import { TagsQuery } from "./resolvers/tag/TagsQuery";
+import { makeExecutableSchema } from "@graphql-tools/schema";
+
+export function getSchema(): GraphQLSchema {
+  const { typeDefs, resolvers } = buildTypeDefsAndResolversSync({
+    resolvers: [UsersQuery, TagsQuery],
   });
+
+  return makeExecutableSchema({ typeDefs, resolvers });
 }
