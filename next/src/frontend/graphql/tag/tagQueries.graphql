@@ -4,5 +4,3 @@ query getTags {
     tagId
   }
 }
-
-

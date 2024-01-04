@@ -14,6 +14,6 @@ export class MassType {
   @Field((type) => String)
   date: string;
 
-  @Field((type) => String)
+  @Field((type) => String , {nullable :true})
   content?: string;
 }
