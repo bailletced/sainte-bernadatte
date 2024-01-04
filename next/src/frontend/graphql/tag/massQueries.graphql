@@ -1,0 +1,8 @@
+query getMasses {
+  fetchAllMasses {
+    content
+    date
+    isWeekly
+    title
+  }
+}

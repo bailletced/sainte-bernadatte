@@ -7,23 +7,35 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "format": "yarn prettier --ignore-path .gitignore -w ."
+    "format": "yarn prettier --ignore-path .gitignore -w .",
+    "graphql:typegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.8",
+    "@apollo/experimental-nextjs-app-support": "^0.5.2",
     "@apollo/server": "^4.9.5",
     "@as-integrations/next": "^3.0.0",
+    "@nextui-org/react": "^2.2.9",
+    "@prisma/client": "5.7.0",
     "class-validator": "^0.14.0",
+    "framer-motion": "^10.16.14",
     "graphql": "^16.8.1",
     "graphql-scalars": "^1.22.4",
     "next": "14.0.3",
-    "prisma": "^5.6.0",
+    "prisma": "5.7.0",
     "react": "^18",
     "react-dom": "^18",
     "reflect-metadata": "^0.1.13",
+    "swiper": "^11.0.5",
     "type-graphql": "2.0.0-beta.3"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@graphql-codegen/cli": "5.0.0",
+    "@graphql-codegen/client-preset": "4.1.0",
+    "@graphql-codegen/introspection": "4.0.0",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-resolvers": "^4.0.1",
+    "@types/node": "^20.10.4",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
@@ -33,7 +45,8 @@
     "postcss": "^8",
     "prettier": "^3.1.0",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   },
   "lint-staged": {
     "**/*.(ts|tsx|js|jsx)": "bash -c tsc --noEmit",
@@ -42,5 +55,8 @@
       "yarn format"
     ],
     "**/*.(md|json)": "yarn format"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   }
 }

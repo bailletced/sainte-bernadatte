@@ -1,0 +1,8 @@
+query getTags {
+  tags {
+    name
+    tagId
+  }
+}
+
+
