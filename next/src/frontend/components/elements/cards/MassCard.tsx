@@ -41,7 +41,7 @@ export default function MassCard({ typeOfMass }: { typeOfMass: string }) {
           "bg-steber-blue/25": typeOfMass !== "weekly",
         })}
       >
-        <CardBody>
+        <CardBody className="font-classic">
           <h1 className="flex underline text-2xl font-medium antialiased justify-center">
             <strong>
               {typeOfMass === "weekly"

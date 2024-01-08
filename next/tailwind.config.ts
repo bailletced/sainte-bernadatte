@@ -12,6 +12,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         beautiful: ["var(--font-bonbonregular)"],
+        classic: ["var(--font-raleway)"]
       },
       colors: {
         "steber-blue": "#0f70b7",

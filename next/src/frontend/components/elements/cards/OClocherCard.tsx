@@ -16,7 +16,7 @@ export default function OClocherCard({
               <Image
                 src={oClocherData.medias[0]}
                 alt={""}
-                width={200}
+                width={400}
                 height={100}
               ></Image>
             </div>

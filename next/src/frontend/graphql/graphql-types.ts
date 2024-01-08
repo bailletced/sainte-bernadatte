@@ -23,7 +23,7 @@ export type DumbModelType = {
 export type MassType = {
   __typename?: 'MassType';
   MassId: Scalars['ID']['output'];
-  content: Scalars['String']['output'];
+  content?: Maybe<Scalars['String']['output']>;
   date: Scalars['String']['output'];
   isWeekly: Scalars['Boolean']['output'];
   title: Scalars['String']['output'];
@@ -68,7 +68,7 @@ export type UserType = {
 export type GetMassesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetMassesQuery = { __typename?: 'Query', fetchAllMasses: Array<{ __typename?: 'MassType', content: string, date: string, isWeekly: boolean, title: string }> };
+export type GetMassesQuery = { __typename?: 'Query', fetchAllMasses: Array<{ __typename?: 'MassType', content?: string | null, date: string, isWeekly: boolean, title: string }> };
 
 export type GetTagsQueryVariables = Exact<{ [key: string]: never; }>;
 

@@ -25,10 +25,12 @@ export const Navbar: TFC = () => {
   ];
 
   return (
-    <NextUiNavbar classNames={{ base: "" }}>
+    <NextUiNavbar classNames={{ base: "bg-steber-orange/75" }}>
       <NavbarContent>
         <NavbarBrand>
-          <Image src="/images/logo.png" alt="logo" width={140} height={80} />
+          <Link href="/home-test">
+            <Image src="/images/logo.png" alt="logo" width={140} height={80} />
+          </Link>
         </NavbarBrand>
 
         <NavbarMenuToggle aria-label="Menu" className="sm:hidden" />
