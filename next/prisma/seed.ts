@@ -53,6 +53,33 @@ async function createMasses() {
   });
 }
 
+async function createGroups() {
+  await prisma.group.createMany({
+    data: [
+      {
+        name: "Jeunes Pros",
+        description: "Groupe des jeunes pros",
+        imgPath: "/images/jeunes_pro.jpg",
+      },
+      {
+        name: "Etudiants",
+        description: "Groupe des étudiants",
+        imgPath: "/images/student.jpg",
+      },
+      {
+        name: "Parcours Alpha",
+        description: "Parcours Alpha",
+        imgPath: "/images/Alpha-gp-.jpeg",
+      },
+      {
+        name: "Du Livre à la Parole",
+        description: "Lire la Bible quotidiennement ",
+        imgPath: "/images/Livre-à-la-parole-2.jpg",
+      },
+    ],
+  });
+}
+
 createTags()
   .then(async () => {
     await prisma.$disconnect();
@@ -64,6 +91,16 @@ createTags()
   });
 
 createMasses()
+  .then(async () => {
+    await prisma.$disconnect();
+  })
+  .catch(async (e) => {
+    console.error(e);
+    await prisma.$disconnect();
+    process.exit(1);
+  });
+
+createGroups()
   .then(async () => {
     await prisma.$disconnect();
   })

@@ -60,7 +60,7 @@ export const Navbar: TFC = () => {
       </NavbarContent>
 
       <NavbarMenu>
-        {menuItems.map((item, index) => (
+        {/* {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               color={
@@ -76,7 +76,12 @@ export const Navbar: TFC = () => {
               {item}
             </Link>
           </NavbarMenuItem>
-        ))}
+        ))} */}
+        <NavbarMenuItem>
+          <Link href={"propositions"}>
+            Propositions
+          </Link>
+        </NavbarMenuItem>
       </NavbarMenu>
     </NextUiNavbar>
   );

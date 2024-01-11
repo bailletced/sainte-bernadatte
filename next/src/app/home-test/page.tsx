@@ -1,11 +1,15 @@
 "use client";
 
+import { GetGroupsQuery, GroupType } from "@/graphql/graphql-types";
 import Mass from "@/src/frontend/components/elements/Masses";
 import OClocherCard from "@/src/frontend/components/elements/cards/OClocherCard";
+import { useSuspenseQuery } from "@apollo/client";
 import { Card } from "@nextui-org/card";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { register } from "swiper/element/bundle";
+import groupQuery from "@/graphql/tag/groupQueries.graphql";
+import GroupCard from "@/src/frontend/components/elements/cards/GroupCard";
 
 let publications: OClocherPublication[] = [];
 
@@ -14,6 +18,10 @@ export default function Home() {
   const [toRender, setRender] = useState(true);
 
   const swiperRef = useRef(null);
+
+  const { data } = useSuspenseQuery<GetGroupsQuery>(groupQuery);
+
+  let groups = data.groups;
 
   useEffect(() => {
     register();
@@ -65,8 +73,16 @@ export default function Home() {
           <Mass typeOfMass={"sunday"}></Mass>
           {/* Messes de semaine */}
           <Mass typeOfMass={"weekly"}></Mass>
-          {/* Contenu  */}
-          <swiper-container navigation={true} ref={swiperRef} slidesPerView={1}>
+          {/* Events */}
+          <h1 className="text-4xl font-beautiful text-center pb-5 text-steber-orange">
+            Evènements
+          </h1>
+          <swiper-container
+            navigation={true}
+            ref={swiperRef}
+            slidesPerView={1}
+            className="bg-[#f7f9fc]"
+          >
             {publications.map((p, index) => (
               <swiper-slide key={`${p}-${index}`}>
                 <OClocherCard oClocherData={p}></OClocherCard>
@@ -75,12 +91,23 @@ export default function Home() {
             <swiper-slide>
               <Card
                 isPressable
-                className=" min-h-[300px] max-h-[300px] flex items-center justify-center"
+                className=" min-h-[245px] max-h-[245px] flex items-center justify-center"
               >
                 Voir plus de publications...
               </Card>
             </swiper-slide>
           </swiper-container>
+          {/* Groupes */}
+          <h1 className="text-4xl font-beautiful text-center mt-5 pb-5 text-steber-orange">
+            Groupes
+          </h1>
+            {groups.map((group, index) => (
+              <GroupCard
+                key={`${group.name}-${index}`}
+                groupName={group.name}
+                groupImage={group.imgPath}
+              ></GroupCard>
+            ))}
         </div>
       </main>
     </>
