@@ -80,6 +80,17 @@ async function createGroups() {
   });
 }
 
+async function createInformations(){
+  await prisma.informations.createMany({
+    data: [
+      {
+        phoneNumber: "04 67 63 48 36",
+        mail: "adressemail@stebernadette.fr",
+      },
+    ],
+  });
+}
+
 createTags()
   .then(async () => {
     await prisma.$disconnect();
@@ -109,3 +120,13 @@ createGroups()
     await prisma.$disconnect();
     process.exit(1);
   });
+
+  createInformations()
+    .then(async () => {
+      await prisma.$disconnect();
+    })
+    .catch(async (e) => {
+      console.error(e);
+      await prisma.$disconnect();
+      process.exit(1);
+    });

@@ -6,7 +6,7 @@ import { CardFooter } from "@nextui-org/react";
 export default function OClocherCard({
   oClocherData,
 }: {
-  oClocherData: OClocherPublication;
+  oClocherData: TOClocherPublication;
 }) {
   return (
     // <a href={oClocherData.link ? oClocherData.link : ""} target="_blank">
@@ -40,7 +40,7 @@ export default function OClocherCard({
     //   </Card>
     // </a>
     <a href={oClocherData.link ? oClocherData.link : ""} target="_blank">
-      <Card isPressable className="container min-h-[245px] max-h-[245px]">
+      <Card isPressable className="container min-h-64 max-h-64 min-w-64 max-w-64">
         <CardBody className="p-0 min-h-[170px] max-h-[170px]">
           {oClocherData.medias[0] ? (
             <Image
@@ -48,14 +48,14 @@ export default function OClocherCard({
               alt={oClocherData.description}
               width={400}
               height={150}
-              className="object-fill"
+              className="object-fill "
             ></Image>
           ) : (
             // </div>
-            <p>Image nn dispo</p>
+            <p>Image indisponible</p>
           )}
         </CardBody>
-        <CardFooter className="text-sm">
+        <CardFooter className="text-sm text-center">
           <p>
             <strong>{oClocherData.name}</strong>
           </p>

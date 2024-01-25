@@ -50,3 +50,9 @@ model Mass {
   date String @db.VarChar(255)
   content String? @db.VarChar(1000)
 }
+
+model Informations{
+  informationsId String @id @default(uuid()) @map("informations_id")
+  phoneNumber String @db.VarChar(50)
+  mail String @db.VarChar(1000)
+}

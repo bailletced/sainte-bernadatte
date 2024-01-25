@@ -28,6 +28,13 @@ export type GroupType = {
   name: Scalars['String']['output'];
 };
 
+export type InformationsType = {
+  __typename?: 'InformationsType';
+  informationsId: Scalars['ID']['output'];
+  mail: Scalars['String']['output'];
+  phoneNumber: Scalars['String']['output'];
+};
+
 export type MassType = {
   __typename?: 'MassType';
   MassId: Scalars['ID']['output'];
@@ -52,6 +59,7 @@ export type Query = {
   dumbQuery: Array<DumbModelType>;
   fetchAllMasses: Array<MassType>;
   groups: Array<GroupType>;
+  informations: InformationsType;
   me: UserType;
   tags: Array<TagType>;
   test: Scalars['String']['output'];
@@ -78,6 +86,11 @@ export type GetGroupsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetGroupsQuery = { __typename?: 'Query', groups: Array<{ __typename?: 'GroupType', name: string, description: string, imgPath: string }> };
+
+export type GetInformationsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetInformationsQuery = { __typename?: 'Query', informations: { __typename?: 'InformationsType', phoneNumber: string, mail: string } };
 
 export type GetMassesQueryVariables = Exact<{ [key: string]: never; }>;
 

@@ -10,8 +10,10 @@ import { useEffect, useRef, useState } from "react";
 import { register } from "swiper/element/bundle";
 import groupQuery from "@/graphql/tag/groupQueries.graphql";
 import GroupCard from "@/src/frontend/components/elements/cards/GroupCard";
+import { Button } from "@nextui-org/react";
+import Link from "next/link";
 
-let publications: OClocherPublication[] = [];
+let publications: TOClocherPublication[] = [];
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,19 +26,21 @@ export default function Home() {
   let groups = data.groups;
 
   useEffect(() => {
+
+    fetchOClocherData();
+
     register();
 
     const params = {
       slidesPerView: 1.3,
-      spaceBetween: 25,
-      navigation: true,
+      spaceBetween: 50,
+      navigation: false,
     };
 
     Object.assign(swiperRef.current, params);
 
     swiperRef.current.initialize();
 
-    fetchOClocherData();
   }, []);
 
   return (
@@ -57,7 +61,7 @@ export default function Home() {
           </h1>
         </div>
       </div>
-      <main className="container mx-auto max-w-7xl pt-5 px-6 flex-grow bg-[#f7f9fc]">
+      <div className="container mx-auto max-w-7xl pt-5 px-6 flex-grow bg-[#f7f9fc]">
         <div className="sm:grid grid-cols-4 gap-5">
           <h1 className="text-4xl font-beautiful text-center pb-5 text-steber-orange">
             Les Messes
@@ -78,6 +82,7 @@ export default function Home() {
             Evènements
           </h1>
           <swiper-container
+            init={false}
             navigation={true}
             ref={swiperRef}
             slidesPerView={1}
@@ -91,7 +96,7 @@ export default function Home() {
             <swiper-slide>
               <Card
                 isPressable
-                className=" min-h-[245px] max-h-[245px] flex items-center justify-center"
+                className="container min-h-64 max-h-64 min-w-64 max-w-64 flex items-center justify-center"
               >
                 Voir plus de publications...
               </Card>
@@ -101,15 +106,23 @@ export default function Home() {
           <h1 className="text-4xl font-beautiful text-center mt-5 pb-5 text-steber-orange">
             Groupes
           </h1>
-            {groups.map((group, index) => (
-              <GroupCard
-                key={`${group.name}-${index}`}
-                groupName={group.name}
-                groupImage={group.imgPath}
-              ></GroupCard>
-            ))}
+          {groups.map((group, index) => (
+            <GroupCard
+              key={`${group.name}-${index}`}
+              groupName={group.name}
+              groupImage={group.imgPath}
+            ></GroupCard>
+          ))}
+          <Link href={"/propositions"}>
+            <Button
+              className="w-full bg-steber-blue font-classic text-white font-bold mb-5 "
+              radius="lg"
+            >
+              Voir plus de groupes
+            </Button>
+          </Link>
         </div>
-      </main>
+      </div>
     </>
   );
 }
@@ -135,7 +148,7 @@ function fetchOClocherData() {
       });
       return Promise.all(fetchPublications);
     })
-    .then((pubs: OClocherPublication[]) =>
+    .then((pubs: TOClocherPublication[]) =>
       pubs.forEach((p, index) =>
         publications.push(formatPublication(p, pubIds[index]))
       )
@@ -143,9 +156,9 @@ function fetchOClocherData() {
 }
 
 function formatPublication(
-  pub: OClocherPublication,
+  pub: TOClocherPublication,
   pubId: any
-): OClocherPublication {
+): TOClocherPublication {
   pub.id = pubId;
   pub.content
     ? (pub.content = pub.content.substring(0, 137).concat("", "..."))

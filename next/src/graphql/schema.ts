@@ -8,10 +8,11 @@ import { makeExecutableSchema } from "@graphql-tools/schema";
 import { DumbQuery } from "./resolvers/dumbModel/DumbQuery";
 import { MassQuery } from "./resolvers/mass/MassQuery";
 import { GroupQuery } from "./resolvers/group/GroupQuery";
+import { InformationsQuery } from "./resolvers/informations/InformationsQuery";
 
 export function getSchema(): GraphQLSchema {
   const { typeDefs, resolvers } = buildTypeDefsAndResolversSync({
-    resolvers: [UsersQuery, TagsQuery, DumbQuery, MassQuery, GroupQuery],
+    resolvers: [UsersQuery, TagsQuery, DumbQuery, MassQuery, GroupQuery, InformationsQuery],
   });
 
   return makeExecutableSchema({ typeDefs, resolvers });

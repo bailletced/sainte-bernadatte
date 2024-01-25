@@ -17,7 +17,7 @@ export default function Page() {
         subtitle="Rejoignez le groupe qui vous correspond !"
       />
       <Spacer size="h-3" />
-      <div className="w-full px-2">
+      <div className="w-full px-2" style={{minHeight: '40svh'}}>
         <MultipleSelect
           items={data.tags.map((tag) => ({ textValue: tag.name }))}
         />

@@ -14,7 +14,7 @@ declare type TClasses<
   ? ""
   : `${Breakpoint}:`}${T}`>;
 
-  declare type OClocherPublication = {
+  declare type TOClocherPublication = {
     id: any;
     created_at: string;
     created_by: string;

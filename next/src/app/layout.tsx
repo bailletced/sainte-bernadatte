@@ -6,6 +6,7 @@ import { Providers } from "../frontend/providers/Providers";
 
 import localFont from "next/font/local";
 import { Navbar } from "../frontend/components/navbar/Navbar";
+import { Footer } from "../frontend/components/footer/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -37,6 +38,7 @@ const RootLayout: TFCC = ({ children }) => {
         <Providers>
           <Navbar />
           {children}
+          <Footer></Footer>
         </Providers>
       </body>
     </html>
