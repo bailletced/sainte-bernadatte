@@ -694,6 +694,13 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
+"@devoxa/prisma-relay-cursor-connection@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.npmjs.org/@devoxa/prisma-relay-cursor-connection/-/prisma-relay-cursor-connection-3.1.1.tgz"
+  integrity sha512-5V5U9K+AxDvxPHzUFGBH3wN30/WsmN/5tF3FpeyYlO6fpJfu9VnznIyBrQC/WStkwOQDGngfNQ8/QSmiwIn8dg==
+  dependencies:
+    graphql-fields "2.0.3"
+
 "@emotion/is-prop-valid@^0.8.2":
   version "0.8.8"
   resolved "https://registry.npmjs.org/@emotion/is-prop-valid/-/is-prop-valid-0.8.8.tgz"
@@ -779,7 +786,7 @@
 
 "@graphql-codegen/add@^5.0.0":
   version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/add/-/add-5.0.0.tgz#578ebaf4fa87c1e934c381cd679bcedcf79feaba"
+  resolved "https://registry.npmjs.org/@graphql-codegen/add/-/add-5.0.0.tgz"
   integrity sha512-ynWDOsK2yxtFHwcJTB9shoSkUd7YXd6ZE57f0nk7W5cu/nAgxZZpEsnTPEpZB/Mjf14YRGe2uJHQ7AfElHjqUQ==
   dependencies:
     "@graphql-codegen/plugin-helpers" "^5.0.0"
@@ -787,7 +794,7 @@
 
 "@graphql-codegen/cli@5.0.0":
   version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/cli/-/cli-5.0.0.tgz#761dcf08cfee88bbdd9cdf8097b2343445ec6f0a"
+  resolved "https://registry.npmjs.org/@graphql-codegen/cli/-/cli-5.0.0.tgz"
   integrity sha512-A7J7+be/a6e+/ul2KI5sfJlpoqeqwX8EzktaKCeduyVKgOLA6W5t+NUGf6QumBDXU8PEOqXk3o3F+RAwCWOiqA==
   dependencies:
     "@babel/generator" "^7.18.13"
@@ -827,7 +834,7 @@
 
 "@graphql-codegen/client-preset@4.1.0":
   version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/client-preset/-/client-preset-4.1.0.tgz#81becd32b78b207b0e966876900537ec172d8df1"
+  resolved "https://registry.npmjs.org/@graphql-codegen/client-preset/-/client-preset-4.1.0.tgz"
   integrity sha512-/3Ymb/fjxIF1+HGmaI1YwSZbWsrZAWMSQjh3dU425eBjctjsVQ6gzGRr+l/gE5F1mtmCf+vlbTAT03heAc/QIw==
   dependencies:
     "@babel/helper-plugin-utils" "^7.20.2"
@@ -856,7 +863,7 @@
 
 "@graphql-codegen/gql-tag-operations@4.0.1":
   version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/gql-tag-operations/-/gql-tag-operations-4.0.1.tgz#36c7d40a135b9889d7f225166be323c3d48cee87"
+  resolved "https://registry.npmjs.org/@graphql-codegen/gql-tag-operations/-/gql-tag-operations-4.0.1.tgz"
   integrity sha512-qF6wIbBzW8BNT+wiVsBxrYOs2oYcsxQ7mRvCpfEI3HnNZMAST/uX76W8MqFEJvj4mw7NIDv7xYJAcAZIWM5LWw==
   dependencies:
     "@graphql-codegen/plugin-helpers" "^5.0.0"
@@ -867,7 +874,7 @@
 
 "@graphql-codegen/introspection@4.0.0":
   version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/introspection/-/introspection-4.0.0.tgz#1d851d8fb38efbeaf45128456e3010a16e6c9708"
+  resolved "https://registry.npmjs.org/@graphql-codegen/introspection/-/introspection-4.0.0.tgz"
   integrity sha512-t9g3AkK99dfHblMWtG4ynUM9+A7JrWq5110zSpNV2wlSnv0+bRKagDW8gozwgXfR5i1IIG8QDjJZ6VgXQVqCZw==
   dependencies:
     "@graphql-codegen/plugin-helpers" "^5.0.0"
@@ -897,7 +904,7 @@
 
 "@graphql-codegen/typed-document-node@^5.0.1":
   version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/typed-document-node/-/typed-document-node-5.0.1.tgz#ac90cf67c61554f63ec100d6076b47c9f0b18b27"
+  resolved "https://registry.npmjs.org/@graphql-codegen/typed-document-node/-/typed-document-node-5.0.1.tgz"
   integrity sha512-VFkhCuJnkgtbbgzoCAwTdJe2G1H6sd3LfCrDqWUrQe53y2ukfSb5Ov1PhAIkCBStKCMQBUY9YgGz9GKR40qQ8g==
   dependencies:
     "@graphql-codegen/plugin-helpers" "^5.0.0"
@@ -908,7 +915,7 @@
 
 "@graphql-codegen/typescript-operations@^4.0.1":
   version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript-operations/-/typescript-operations-4.0.1.tgz#930af3e2d2ae8ff06de696291be28fe7046a2fef"
+  resolved "https://registry.npmjs.org/@graphql-codegen/typescript-operations/-/typescript-operations-4.0.1.tgz"
   integrity sha512-GpUWWdBVUec/Zqo23aFLBMrXYxN2irypHqDcKjN78JclDPdreasAEPcIpMfqf4MClvpmvDLy4ql+djVAwmkjbw==
   dependencies:
     "@graphql-codegen/plugin-helpers" "^5.0.0"
@@ -1001,7 +1008,7 @@
 
 "@graphql-tools/documents@^1.0.0":
   version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/documents/-/documents-1.0.0.tgz#e3ed97197cc22ec830ca227fd7d17e86d8424bdf"
+  resolved "https://registry.npmjs.org/@graphql-tools/documents/-/documents-1.0.0.tgz"
   integrity sha512-rHGjX1vg/nZ2DKqRGfDPNC55CWZBMldEVcH+91BThRa6JeT80NqXknffLLEZLRUxyikCfkwMsk6xR3UNMqG0Rg==
   dependencies:
     lodash.sortby "^4.7.0"
@@ -5286,6 +5293,11 @@ graphql-config@^5.0.2:
     minimatch "^4.2.3"
     string-env-interpolation "^1.0.1"
     tslib "^2.4.0"
+
+graphql-fields@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.npmjs.org/graphql-fields/-/graphql-fields-2.0.3.tgz"
+  integrity sha512-x3VE5lUcR4XCOxPIqaO4CE+bTK8u6gVouOdpQX9+EKHr+scqtK5Pp/l8nIGqIpN1TUlkKE6jDCCycm/WtLRAwA==
 
 graphql-query-complexity@^0.12.0:
   version "0.12.0"

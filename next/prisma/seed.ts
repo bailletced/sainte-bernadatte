@@ -20,12 +20,35 @@ async function createTags() {
   });
 }
 
-createTags()
-  .then(async () => {
+async function createGroups() {
+  await prisma.group.createMany({
+    data: [
+      {
+        description: "Description du groupe parcours Alpha....",
+        name: "Alpha",
+      },
+      {
+        name: "Adoration",
+        description: "Description du groupe adoration....",
+      },
+      {
+        name: "Association Parguel",
+        description: "Description de l'association Parguel....",
+      },
+    ],
+  });
+}
+
+async function bootstrap() {
+  try {
+    await createTags();
+    await createGroups();
     await prisma.$disconnect();
-  })
-  .catch(async (e) => {
+  } catch (e) {
     console.error(e);
     await prisma.$disconnect();
     process.exit(1);
-  });
+  }
+}
+
+bootstrap();
