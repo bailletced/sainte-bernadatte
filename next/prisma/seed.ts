@@ -1,3 +1,6 @@
+import "reflect-metadata";
+
+import { EWeekday } from "@/src/graphql/enums/WeekdayEnum";
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
@@ -15,6 +18,49 @@ async function createTags() {
       },
       {
         name: "Étudiants",
+      },
+    ],
+  });
+}
+
+async function createMasses() {
+  await prisma.mass.createMany({
+    data: [
+      {
+        weekDay: EWeekday.LUNDI,
+        hour: "18:30",
+      },
+      {
+        weekDay: EWeekday.MARDI,
+        hour: "18:30",
+      },
+      {
+        weekDay: EWeekday.MERCREDI,
+        hour: "18:30",
+      },
+      {
+        weekDay: EWeekday.JEUDI,
+        hour: "09:00",
+      },
+      {
+        weekDay: EWeekday.VENDREDI,
+        hour: "09:00",
+      },
+      {
+        weekDay: EWeekday.SAMEDI,
+        hour: "11:30",
+      },
+      {
+        weekDay: EWeekday.DIMANCHE,
+        hour: "09:00",
+      },
+      {
+        weekDay: EWeekday.DIMANCHE,
+        hour: "10:30",
+      },
+      {
+        weekDay: EWeekday.DIMANCHE,
+        hour: "18:30",
       },
     ],
   });
@@ -43,6 +89,7 @@ async function bootstrap() {
   try {
     await createTags();
     await createGroups();
+    await createMasses();
     await prisma.$disconnect();
   } catch (e) {
     console.error(e);

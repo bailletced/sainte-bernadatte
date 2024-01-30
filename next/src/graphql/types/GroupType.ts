@@ -23,10 +23,10 @@ export class GroupType {
 }
 
 @ObjectType()
-class ItemEdge extends EdgeType(GroupType) {}
+class GroupEdge extends EdgeType(GroupType) {}
 
 @ObjectType()
 export class GroupConnection extends ConnectionType({
-  edge: ItemEdge,
+  edge: GroupEdge,
   node: GroupType,
 }) {}

@@ -1,23 +1,23 @@
 import { Args, Query, Resolver } from "type-graphql";
-import { GroupConnection } from "../../types/GroupType";
 import { ForwardPaginationArgs } from "../../pagination/cursor/cursorPagination";
 import { findManyCursorConnection } from "@devoxa/prisma-relay-cursor-connection";
 import prismaClient from "@/prisma/db";
+import { MassConnection } from "../../types/MassType";
 
 @Resolver()
-export class GroupsQuery {
-  @Query(() => GroupConnection, { nullable: true })
-  async groups(@Args() { after, first }: ForwardPaginationArgs) {
+export class MassesQuery {
+  @Query(() => MassConnection, { nullable: true })
+  async masses(@Args() { after, first }: ForwardPaginationArgs) {
     return await findManyCursorConnection(
       (args) =>
-        prismaClient.group.findMany({
+        prismaClient.mass.findMany({
           ...args,
-          cursor: args.cursor ? { groupId: args.cursor?.id } : undefined,
+          cursor: args.cursor ? { massId: args.cursor?.id } : undefined,
         }),
-      () => prismaClient.group.count(),
+      () => prismaClient.mass.count(),
       { after: after, first },
       {
-        getCursor: (group) => ({ id: group.id }),
+        getCursor: (mass) => ({ id: mass.id }),
       },
     );
   }

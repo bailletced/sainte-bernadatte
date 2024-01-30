@@ -16,6 +16,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
+    "allowImportingTsExtensions": true,
     "plugins": [
       {
         "name": "next"
