@@ -78,9 +78,10 @@ export const Navbar: TFC = () => {
           </NavbarMenuItem>
         ))} */}
         <NavbarMenuItem>
-          <Link href={"propositions"}>
-            Propositions
-          </Link>
+          <Link href={"propositions"}>Propositions</Link>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <Link href={"presentation"}>Présentation de la paroisse</Link>
         </NavbarMenuItem>
       </NavbarMenu>
     </NextUiNavbar>

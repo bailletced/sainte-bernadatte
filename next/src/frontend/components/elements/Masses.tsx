@@ -26,7 +26,7 @@ export default function Mass({ typeOfMass }: { typeOfMass: string }) {
   }, []);
 
   return (
-    <div>
+    <div className="text-steber-blue-text">
       <h1 className="text-center text-3xl mb-3 font-bold font-beautiful underline">
         {typeOfMass === "weekly" ? "Messes de semaines" : "Messes Dominicales"}
       </h1>
@@ -34,7 +34,8 @@ export default function Mass({ typeOfMass }: { typeOfMass: string }) {
         <ul>
           {masses.map((mass, index) => (
             <li key={`${mass}-${index}`} className="pb-5">
-              {mass.title} à <strong>{mass.date}</strong>
+              {mass.title} à{" "}
+              <strong className="text-black">{mass.date}</strong>
             </li>
           ))}
         </ul>

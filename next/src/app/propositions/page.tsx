@@ -15,6 +15,7 @@ export default function Page() {
       <HeadPage
         title="Propositions de la paroisse"
         subtitle="Rejoignez le groupe qui vous correspond !"
+        url = "/images/groupes.jpg"
       />
       <Spacer size="h-3" />
       <div className="w-full px-2" style={{minHeight: '40svh'}}>

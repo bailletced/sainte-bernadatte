@@ -20,6 +20,7 @@ const config: Config = {
         "steber-blue-gd-start": "#373B44",
         "steber-blue-gd-end": "#4286f4",
         "steber-red": "#BE1522",
+        "steber-blue-text" : "#0F3E60",
       },
     },
   },
