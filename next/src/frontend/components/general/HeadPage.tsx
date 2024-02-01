@@ -1,14 +1,15 @@
 type THeadPageProps = {
   title: string;
   subtitle: string;
+  urlImage: string;
 };
 
-export const HeadPage: TFC<THeadPageProps> = ({ title, subtitle }) => {
+export const HeadPage: TFC<THeadPageProps> = ({ title, subtitle, urlImage }) => {
   return (
     <div
       className="flex items-center justify-center w-full h-80 "
       style={{
-        backgroundImage: "url(/images/groupes.jpg)",
+        backgroundImage: `url(${urlImage})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",
