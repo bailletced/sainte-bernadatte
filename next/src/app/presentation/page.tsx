@@ -35,7 +35,7 @@ export default function Page() {
       <HeadPage
         title={"Présentation de la paroisse"}
         subtitle={""}
-        url={"/images/Autel.jpg"}
+        urlImage={"/images/Autel.jpg"}
       ></HeadPage>
       <Spacer size="h-3" />
       <div
