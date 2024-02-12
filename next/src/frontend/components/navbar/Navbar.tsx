@@ -36,7 +36,7 @@ export const Navbar: TFC = () => {
         <NavbarMenuToggle aria-label="Menu" className="sm:hidden" />
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarContent className="hidden sm:flex gap-12" justify="center">
         <NavbarItem>
           <Link color="foreground" href="#">
             Communauté
@@ -48,7 +48,7 @@ export const Navbar: TFC = () => {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/propositions">
             Propositions
           </Link>
         </NavbarItem>

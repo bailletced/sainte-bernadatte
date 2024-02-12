@@ -27,10 +27,10 @@ export default function Mass({ typeOfMass }: { typeOfMass: string }) {
 
   return (
     <div className="text-steber-blue-text">
-      <h1 className="text-center text-3xl mb-3 font-bold font-beautiful underline">
+      <h1 className="text-center text-3xl mb-3 font-bold font-beautiful underline sm:text-4xl">
         {typeOfMass === "weekly" ? "Messes de semaines" : "Messes Dominicales"}
       </h1>
-      <div className="font-classic">
+      <div className="font-classic text-center sm:text-2xl">
         <ul>
           {masses.map((mass, index) => (
             <li key={`${mass}-${index}`} className="pb-5">

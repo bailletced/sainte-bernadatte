@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 const RootLayout: TFCC = ({ children }) => {
   return (
     <html lang="fr" className={`${inter.className} ${bonbonRegular.variable} ${fontRaleway.variable}`}>
-      <body suppressHydrationWarning={true}>
+      <body suppressHydrationWarning={true} className="bg-[#f7f9fc]">
         <Providers>
           <Navbar />
           {children}

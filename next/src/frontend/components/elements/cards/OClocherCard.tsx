@@ -40,30 +40,33 @@ export default function OClocherCard({
     //   </Card>
     // </a>
     <a href={oClocherData.link ? oClocherData.link : ""} target="_blank">
-      <Card isPressable className="container min-h-64 max-h-64 min-w-64 max-w-64">
-        <CardBody className="p-0 min-h-[170px] max-h-[170px]">
+      <Card
+        isPressable
+        className="container min-h-64 max-h-64 min-w-64 max-w-64 sm:min-w-96 min-h-80 max-h-80"
+      >
+        <CardHeader className="p-0 min-h-[170px] max-h-[170px]">
           {oClocherData.medias[0] ? (
             <Image
               src={oClocherData.medias[0]}
               alt={oClocherData.description}
               width={400}
               height={150}
-              className="object-fill "
+              className="object-fill sm:max-h-48"
             ></Image>
           ) : (
-            // </div>
             <p>Image indisponible</p>
           )}
-        </CardBody>
-        <CardFooter className="text-sm text-center">
-          <p>
+        </CardHeader>
+        <CardBody className="text-md justify-between">
+          <p className="">
             <strong>{oClocherData.name}</strong>
           </p>
-          {/* <p>
+          <br />
+          <p className="collapse sm:visible inline">
             <em>{oClocherData.description}</em>
           </p>
-          <p>{oClocherData.content}</p> */}
-        </CardFooter>
+          <p className="collapse sm:visible inline">{oClocherData.content}</p>
+        </CardBody>
       </Card>
     </a>
   );

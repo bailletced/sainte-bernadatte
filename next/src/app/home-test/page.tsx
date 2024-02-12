@@ -12,7 +12,7 @@ import groupQuery from "@/graphql/tag/groupQueries.graphql";
 import GroupCard from "@/src/frontend/components/elements/cards/GroupCard";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
-
+import clsx from "clsx";
 import json from '../publications.json'
 import jsonId from '../publications_id.json'
 
@@ -69,6 +69,12 @@ export default function Home() {
     register();
 
     const params = {
+      breakpoints : {
+        640: {
+          slidesPerView: 3,
+          spaceBetween: 50,
+        }
+      },
       slidesPerView: 1.3,
       spaceBetween: 50,
       navigation: false,
@@ -83,14 +89,14 @@ export default function Home() {
   return (
     <>
       <div
-        className="grid grid-rows-6"
-        style={{
-          backgroundImage: "url(/images/grotte-lourdes_mobile.jpg)",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center center",
-          height: "80svh",
-        }}
+        className="grid grid-rows-6 bg-[url(/images/grotte-lourdes_mobile.jpg)] bg-cover bg-no-repeat bg-center sm:h-screen sm:bg-[url(/images/rentree-etudiants-scaled.jpg)]"
+        // style={{
+        //   backgroundImage: "url(/images/grotte-lourdes_mobile.jpg)",
+        //   backgroundSize: "cover",
+        //   backgroundRepeat: "no-repeat",
+        //   backgroundPosition: "center center",
+        //   height: "80svh",
+        // }}
       >
         <div className="row-start-2 text-center align-top">
           <h1 className=" text-white text-5xl text-center font-beautiful align-top">
@@ -98,24 +104,26 @@ export default function Home() {
           </h1>
         </div>
       </div>
-      <div className="container mx-auto max-w-7xl pt-5 px-6 flex-grow bg-[#f7f9fc]">
-        <div className="sm:grid grid-cols-4 gap-5">
-          <h1 className="text-4xl font-beautiful text-center pb-5 text-steber-orange">
+      <div className="container mx-auto max-w-7xl pt-5 px-6 flex-grow sm: pt-8 pl-8 pr-8 max-w-screen-2xl">
+        <div className="">
+          <h1 className="text-4xl font-beautiful text-center pb-5 text-steber-orange sm: text-5xl">
             Les Messes
           </h1>
           <Image
             src={"/images/rentree-etudiants-scaled.jpg"}
             alt={"Eglise sainte bernadette"}
-            width={1920}
-            height={1080}
-            className="rounded-xl mb-5"
+            width={1280}
+            height={720}
+            className="rounded-xl mb-5 sm: m-auto"
           ></Image>
-          {/* Messes dominicales */}
-          <Mass typeOfMass={"sunday"}></Mass>
-          {/* Messes de semaine */}
-          <Mass typeOfMass={"weekly"}></Mass>
+          <div className="sm:grid grid-cols-2">
+            {/* Messes dominicales */}
+            <Mass typeOfMass={"sunday"}></Mass>
+            {/* Messes de semaine */}
+            <Mass typeOfMass={"weekly"}></Mass>
+          </div>
           {/* Events */}
-          <h1 className="text-4xl font-beautiful text-center pb-5 text-steber-orange">
+          <h1 className="text-4xl font-beautiful text-center pb-5 text-steber-orange sm: text-5xl">
             Evènements
           </h1>
           <swiper-container
@@ -143,16 +151,18 @@ export default function Home() {
           <h1 className="text-4xl font-beautiful text-center mt-5 pb-5 text-steber-orange">
             Groupes
           </h1>
-          {groups.map((group, index) => (
-            <GroupCard
-              key={`${group.name}-${index}`}
-              groupName={group.name}
-              groupImage={group.imgPath}
-            ></GroupCard>
-          ))}
-          <Link href={"/propositions"}>
+          <div className="sm:grid grid-cols-4 gap-5">
+            {groups.map((group, index) => (
+              <GroupCard
+                key={`${group.name}-${index}`}
+                groupName={group.name}
+                groupImage={group.imgPath}
+              ></GroupCard>
+            ))}
+          </div>
+          <Link href={"/propositions"} className="sm:flex justify-center">
             <Button
-              className="w-full bg-steber-blue font-classic text-white font-bold mb-5 "
+              className="w-full bg-steber-blue font-classic text-white font-bold mb-5 sm:w-72"
               radius="lg"
             >
               Voir plus de groupes
