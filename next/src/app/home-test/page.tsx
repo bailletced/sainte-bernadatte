@@ -13,6 +13,9 @@ import GroupCard from "@/src/frontend/components/elements/cards/GroupCard";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
 
+import json from '../publications.json'
+import jsonId from '../publications_id.json'
+
 let publications: TOClocherPublication[] = [];
 
 export default function Home() {
@@ -27,7 +30,41 @@ export default function Home() {
 
   useEffect(() => {
 
-    fetchOClocherData();
+    // fetchOClocherData();
+
+    // Pour ne pas faire appel à l'API OClocher
+    json.forEach((json) => {
+      let publication: TOClocherPublication = {
+        id: json.id,
+        created_at: json.created_at,
+        created_by: json.created_by,
+        created_source: json.created_source,
+        updated_at: json.updated_at,
+        updated_by: json.updated_by,
+        disabled: json.disabled,
+        disabled_at: json.disabled_at,
+        organization: json.organization,
+        is_organization: json.is_organization,
+        is_anonymous: json.is_anonymous,
+        kind: json.kind,
+        name: json.name,
+        description: json.description,
+        content: json.content,
+        selection: json.selection,
+        medias: json.medias,
+        hypertext: json.hypertext,
+        warning: json.warning, // ou null si vous voulez mettre explicitement null
+        warning_content: json.warning_content, // ou null si vous voulez mettre explicitement null
+        datetime_start: json.datetime_start,
+        datetime_finish: json.datetime_finish,
+        location: json.location,
+        address: json.address,
+        recurrence_id: json.recurrence_id,
+      };
+      publications.push(publication)
+    })
+
+    publications.forEach((p, index) => formatPublication(p, jsonId[index]))
 
     register();
 
@@ -83,7 +120,7 @@ export default function Home() {
           </h1>
           <swiper-container
             init={false}
-            navigation={true}
+            navigation={false}
             ref={swiperRef}
             slidesPerView={1}
             className="bg-[#f7f9fc]"
